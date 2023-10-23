@@ -16,6 +16,7 @@ class DebitAccount(AbstractAccount):
             raise ValueError("Credit line must be positive.")
         if self.balance < 0.0 and credit_line < -self.balance:
             raise ValueError("Credit line must be larger than current debt.")
+
         self._credit_line = credit_line
 
     def internal_withdraw(self, amount: float) -> None:
@@ -23,4 +24,5 @@ class DebitAccount(AbstractAccount):
             raise ValueError(
                 "Amount must be positive and amount cannot overstep credit line."
             )
+
         self.balance -= amount

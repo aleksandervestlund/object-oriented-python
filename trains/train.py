@@ -19,20 +19,18 @@ class Train:
         )
 
     def get_passenger_count(self) -> int:
-        passenger_cars: list[PassengerCar] = []
-        for train_car in self.train_cars:
-            if isinstance(train_car, PassengerCar):
-                passenger_cars.append(train_car)
         return sum(
-            passenger_car.passenger_count for passenger_car in passenger_cars
+            train_car.passenger_count
+            for train_car in self.train_cars
+            if isinstance(train_car, PassengerCar)
         )
 
     def get_cargo_weight(self) -> int:
-        cargo_cars: list[CargoCar] = []
-        for train_car in self.train_cars:
-            if isinstance(train_car, CargoCar):
-                cargo_cars.append(train_car)
-        return sum(cargo_car.cargo_weight for cargo_car in cargo_cars)
+        return sum(
+            train_car.cargo_weight
+            for train_car in self.train_cars
+            if isinstance(train_car, CargoCar)
+        )
 
     def __repr__(self) -> str:
         return str(self.train_cars)

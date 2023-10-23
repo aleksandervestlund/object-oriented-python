@@ -8,6 +8,7 @@ class CardDeck(CardContainerImpl):
         super().__init__()
         if not 0 <= n <= 13:
             raise ValueError("Invalid amunt of faces.")
+
         self.cards = [
             Card(suit, face) for face in range(1, n + 1) for suit in SUITS
         ]
@@ -15,7 +16,7 @@ class CardDeck(CardContainerImpl):
     def shuffle_perfectly(self) -> None:
         temp_cards: list[Card] = []
 
-        middle = int(self.get_card_count() / 2)  # Length will never be odd
+        middle = self.get_card_count() // 2  # Length will never be odd
         for i in range(middle):
             temp_cards.append(self.get_card(i))
             temp_cards.append(self.get_card(middle + i))

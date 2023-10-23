@@ -17,7 +17,7 @@ class CargoCar(TrainCar):
         self._cargo_weight = cargo_weight
 
     def get_total_weight(self) -> int:
-        return super().get_total_weight() + self.cargo_weight
+        return super().get_total_weight() + self._cargo_weight
 
     def __repr__(self) -> str:
         return (

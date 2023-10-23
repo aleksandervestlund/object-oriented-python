@@ -13,6 +13,7 @@ class BSU(SavingsAccount):
     def deposit(self, amount: float) -> None:
         if self.balance + amount > self.yearly_maximum:
             raise ValueError("Cannot deposit that much.")
+
         super().deposit(amount)
         self.total_deposited += amount
 

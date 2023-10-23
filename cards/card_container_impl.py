@@ -4,7 +4,6 @@ from card import Card
 
 class CardContainerImpl(CardContainer):
     def __init__(self) -> None:
-        super().__init__()
         self.cards: list[Card] = []
 
     def get_card_count(self) -> int:

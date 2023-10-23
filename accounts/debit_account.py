@@ -7,4 +7,5 @@ class DebitAccount(AbstractAccount):
             raise ValueError(
                 "Amount must be positive and smaller than balance."
             )
+
         self.balance -= amount

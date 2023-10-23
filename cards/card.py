@@ -12,7 +12,7 @@ class Card:
         self.face = face
 
     def __repr__(self) -> str:
-        return self.suit + str(self.face)
+        return f"{self.suit}{self.face}"
 
 
 def main() -> None:

@@ -6,12 +6,14 @@ class ForeldreSpar(SavingsAccount):
         super().__init__(interest_rate)
         if maximum_withdrawals < 0:
             raise ValueError("Amount of withdrawals must be positive.")
+
         self.maximum_withdrawals = maximum_withdrawals
         self.remaining_withdrawals = maximum_withdrawals
 
     def deposit(self, amount: float) -> None:
         if self.remaining_withdrawals - 1 < 0:
             raise ValueError("Reached maximum withdrawals.")
+
         super().deposit(amount)
         self.remaining_withdrawals -= 1
 

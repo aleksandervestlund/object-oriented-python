@@ -8,6 +8,4 @@ class UpOrDownCounter:
 
     def count(self) -> bool:
         self.counter += self.direction
-        if self.counter == self.end:
-            return False
-        return True
+        return self.counter != self.end

@@ -37,9 +37,8 @@ class LineEditor:
 
     def insert_string(self, string: str) -> None:
         self._text = (
-            self.text[: self.insertion_index]
-            + string
-            + self.text[self.insertion_index :]
+            f"{self.text[: self.insertion_index]}{string}"
+            f"{self.text[self.insertion_index :]}"
         )
         self.right(n=len(string))
 
@@ -47,8 +46,8 @@ class LineEditor:
         if self.insertion_index == 0:
             return
         self._text = (
-            self.text[: self.insertion_index - 1]
-            + self.text[self.insertion_index :]
+            f"{self.text[: self.insertion_index - 1]}"
+            f"{self.text[self.insertion_index :]}"
         )
         self.left(n=1)
 
@@ -56,15 +55,14 @@ class LineEditor:
         if self.insertion_index == len(self.text):
             return
         self._text = (
-            self.text[: self.insertion_index]
-            + self.text[self.insertion_index + 1 :]
+            f"{self.text[: self.insertion_index]}"
+            f"{self.text[self.insertion_index + 1 :]}"
         )
 
     def __repr__(self) -> str:
         return (
-            self.text[: self.insertion_index]
-            + "|"
-            + self.text[self.insertion_index :]
+            f"{self.text[: self.insertion_index]}|"
+            f"{self.text[self.insertion_index :]}"
         )
 
 

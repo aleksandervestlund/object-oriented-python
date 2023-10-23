@@ -11,13 +11,14 @@ class Tweet:
         original_tweet: Self | None = None,
     ) -> None:
         if original_tweet:
-            original_tweet.retweets += 1
             if text:
                 raise ValueError(
                     "Cannot be both tweet and retweet at the same time."
                 )
             if original_tweet.owner is self:
                 raise ValueError("Cannot retweet own tweet.")
+
+            original_tweet.retweets += 1
 
         self.retweets = 0
         self.owner = owner

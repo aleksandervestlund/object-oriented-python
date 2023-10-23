@@ -3,7 +3,6 @@ from account import Account
 
 class SavingsAccount(Account):
     def __init__(self, interest_rate: float) -> None:
-        super().__init__()
         if not 0 <= interest_rate <= 1.0:
             raise ValueError("Interest rate must be between 0.0 and 1.0.")
 
@@ -13,6 +12,7 @@ class SavingsAccount(Account):
     def deposit(self, amount: float) -> None:
         if amount <= 0.0:
             raise ValueError("Amount must be positive.")
+
         self.balance += amount
 
     def withdraw(self, amount: float) -> None:
@@ -20,6 +20,7 @@ class SavingsAccount(Account):
             raise ValueError(
                 "Amount must be positive and smaller than balance."
             )
+
         self.balance -= amount
 
     def end_year_update(self) -> None:

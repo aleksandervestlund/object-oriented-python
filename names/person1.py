@@ -20,9 +20,10 @@ class Person1(Named):
         return self.family_name
 
     def set_full_name(self, full_name: str) -> None:
-        names = full_name.split(" ")
+        names = full_name.split()
         if len(names) != 2:
             raise ValueError("Illegal argument.")
+
         self.given_name, self.family_name = names
 
     def get_full_name(self) -> str:

@@ -4,7 +4,7 @@ from typing import Self
 class Partner:
     def __init__(self, name: str) -> None:
         self.name = name
-        self.partner: (Self | None) = None
+        self.partner: Self | None = None
 
     def __repr__(self) -> str:
         return self.name
@@ -22,6 +22,7 @@ class Partner:
 
 
 def main() -> None:
+    # Basic tests
     p1 = Partner("Ola")
     p2 = Partner("Astrid")
     p3 = Partner("Per")
