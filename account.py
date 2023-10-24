@@ -4,6 +4,7 @@ class Account:
     ) -> None:
         if balance < 0.0:
             raise ValueError("Balance must be positive.")
+
         self._balance: float = balance
         self._interest_rate: float = interest_rate
 
@@ -15,11 +16,13 @@ class Account:
     def interest_rate(self, interest_rate: float) -> None:
         if not 0.0 <= interest_rate <= 1.0:
             raise ValueError("Interest rate must be between 0.0 and 1.0.")
+
         self._interest_rate = interest_rate
 
     def deposit(self, amount: float) -> None:
         if amount <= 0.0:
             raise ValueError("Amount must be positive.")
+
         self._balance += amount
 
     def withdraw(self, amount: float) -> None:
@@ -27,6 +30,7 @@ class Account:
             raise ValueError(
                 "Amount must be positive and smaller than balance."
             )
+
         self._balance -= amount
 
     def add_interest(self) -> None:

@@ -14,6 +14,7 @@ class CargoCar(TrainCar):
     def cargo_weight(self, cargo_weight: int) -> None:
         if cargo_weight < 0:
             raise ValueError("Weight cannot be negative.")
+
         self._cargo_weight = cargo_weight
 
     def get_total_weight(self) -> int:
@@ -24,3 +25,11 @@ class CargoCar(TrainCar):
             f"Cargo Car(Weight: {self.get_total_weight()}, Cargo: "
             f"{self._cargo_weight} kg)"
         )
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

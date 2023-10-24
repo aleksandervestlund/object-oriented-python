@@ -63,3 +63,11 @@ class TwitterAccount:
 
     def get_retweet_count(self) -> int:
         return sum(tweet.retweets for tweet in self.tweets)
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

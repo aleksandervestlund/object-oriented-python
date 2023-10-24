@@ -14,3 +14,11 @@ class Digit:
             self.value = 0
             return True
         return False
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

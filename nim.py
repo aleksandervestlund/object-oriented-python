@@ -28,3 +28,11 @@ class Nim:
         for i in range(3):
             string.write(f"{i}: {self.get_pile(i)}. ")
         return string.getvalue()
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

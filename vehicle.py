@@ -64,3 +64,11 @@ class Vehicle:
             raise ValueError("Last characters must be digits.")
 
         self._registration_number = registration_number
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

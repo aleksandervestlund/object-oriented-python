@@ -110,3 +110,11 @@ class Rectangle:
 
     def __repr__(self) -> str:
         return f"Rectangle[({self.x1}),({self.y1}),({self.x2}),({self.y2})]"
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

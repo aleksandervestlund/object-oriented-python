@@ -20,6 +20,7 @@ class DebitAccount(AbstractAccount):
         if not self.withdrawals:
             if self.balance - amount - self.fee < 0.0:
                 raise ValueError("Cannot afford fee.")
+
             self.balance -= self.fee
 
         self.balance -= amount

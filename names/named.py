@@ -28,3 +28,11 @@ class Named(ABC):
 
     def __repr__(self) -> str:
         return self.get_full_name()
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

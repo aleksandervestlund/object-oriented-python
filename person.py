@@ -71,3 +71,11 @@ class Person:
         self._father = father
         if self.father is not None:
             self.father.add_child(self)
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

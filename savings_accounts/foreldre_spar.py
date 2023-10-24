@@ -20,3 +20,11 @@ class ForeldreSpar(SavingsAccount):
     def end_year_update(self) -> None:
         super().end_year_update()
         self.remaining_withdrawals = self.maximum_withdrawals
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

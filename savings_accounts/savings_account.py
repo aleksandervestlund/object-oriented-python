@@ -25,3 +25,11 @@ class SavingsAccount(Account):
 
     def end_year_update(self) -> None:
         self.balance *= 1 + self.interest_rate
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

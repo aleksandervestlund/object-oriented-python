@@ -9,3 +9,11 @@ class UpOrDownCounter:
     def count(self) -> bool:
         self.counter += self.direction
         return self.counter != self.end
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

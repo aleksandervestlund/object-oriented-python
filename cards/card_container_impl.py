@@ -11,3 +11,11 @@ class CardContainerImpl(CardContainer):
 
     def get_card(self, n: int) -> Card:
         return self.cards[n]
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

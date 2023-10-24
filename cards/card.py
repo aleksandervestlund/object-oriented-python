@@ -1,4 +1,4 @@
-SUITS = ("S", "H", "D", "C")
+SUITS = {"S", "H", "D", "C"}
 
 
 class Card:

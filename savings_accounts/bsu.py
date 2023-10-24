@@ -4,7 +4,7 @@ from savings_account import SavingsAccount
 class BSU(SavingsAccount):
     def __init__(self, interest_rate: float, yearly_maximum: float) -> None:
         super().__init__(interest_rate)
-        self.total_deposited = 0
+        self.total_deposited = 0.0
         self.yearly_maximum = yearly_maximum
 
     def get_tax_deduction(self) -> float:
@@ -20,3 +20,11 @@ class BSU(SavingsAccount):
     def end_year_update(self) -> None:
         super().end_year_update()
         self.total_deposited = 0
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

@@ -14,6 +14,7 @@ class PassengerCar(TrainCar):
     def passenger_count(self, passenger_count: int) -> None:
         if passenger_count < 0:
             raise ValueError("Passenger count cannot be negative.")
+
         self._passenger_count = passenger_count
 
     def get_total_weight(self) -> int:
@@ -24,3 +25,11 @@ class PassengerCar(TrainCar):
             f"Passenger Car(Weight: {self.get_total_weight()}, Passengers: "
             f"{self._passenger_count})"
         )
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()

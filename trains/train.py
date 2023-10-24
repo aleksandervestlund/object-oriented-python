@@ -34,3 +34,11 @@ class Train:
 
     def __repr__(self) -> str:
         return str(self.train_cars)
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()
