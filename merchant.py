@@ -34,6 +34,7 @@ class Item:
     def price(self, price: float) -> None:
         if price < 0.0:
             raise ValueError("Price cannot be negative.")
+
         self._price = price
 
     def __repr__(self) -> str:
