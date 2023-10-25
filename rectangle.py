@@ -69,9 +69,10 @@ class Rectangle:
         return True
 
     def add_rectangle(self, rectangle: Self) -> bool:
-        return self.add_point(rectangle.x1, rectangle.y1) or self.add_point(
-            rectangle.x2, rectangle.y2
-        )
+        if self.add_point(rectangle.x1, rectangle.y1):
+            self.add_point(rectangle.x2, rectangle.y2)
+            return True
+        return self.add_point(rectangle.x2, rectangle.y2)
 
     def union(self, rectangle: Self) -> Self:
         return Rectangle(
