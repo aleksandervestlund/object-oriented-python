@@ -23,3 +23,11 @@ class CookieFactory:
 
         self.money += 5 * amount
         self.cookies -= amount
+
+
+def main() -> None:
+    pass
+
+
+if __name__ == "__main__":
+    main()
