@@ -1,6 +1,6 @@
 from typing import Self
-from cards.card import Card
-from cards.card_container import CardContainer
+from card import Card
+from card_container import CardContainer
 
 
 class CardContainerIterator:

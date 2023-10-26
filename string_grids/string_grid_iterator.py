@@ -1,5 +1,5 @@
 from collections.abc import Iterator
-from string_grids.string_grid import StringGrid
+from string_grid import StringGrid
 
 
 class StringGridIterator:

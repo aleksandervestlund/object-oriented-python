@@ -1,4 +1,4 @@
-def is_valid_capacity(capacity: float) -> bool:
+def _is_valid_capacity(capacity: float) -> bool:
     return capacity >= 0.0
 
 
@@ -6,7 +6,7 @@ class CoffeeCup:
     def __init__(
         self, capacity: float = 0.0, current_volume: float = 0.0
     ) -> None:
-        if not is_valid_capacity(capacity):
+        if not _is_valid_capacity(capacity):
             raise ValueError("Illegal capacity given.")
         if not self.is_valid_volume(current_volume):
             raise ValueError("Illegal volume given.")
@@ -18,7 +18,7 @@ class CoffeeCup:
         return 0.0 <= volume <= self.capacity
 
     def increase_cup_size(self, bigger_capacity: float) -> None:
-        if is_valid_capacity(bigger_capacity):
+        if _is_valid_capacity(bigger_capacity):
             self.capacity += bigger_capacity
 
     def can_drink(self, volume: float) -> bool:
