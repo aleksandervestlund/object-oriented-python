@@ -4,9 +4,11 @@ class Account:
     ) -> None:
         if balance < 0.0:
             raise ValueError("Balance must be positive.")
+        if not 0.0 <= interest_rate <= 1.0:
+            raise ValueError("Interest rate must be between 0.0 and 1.0.")
 
-        self._balance: float = balance
-        self._interest_rate: float = interest_rate
+        self.balance = balance
+        self._interest_rate = interest_rate
 
     @property
     def interest_rate(self) -> float:
@@ -23,21 +25,21 @@ class Account:
         if amount <= 0.0:
             raise ValueError("Amount must be positive.")
 
-        self._balance += amount
+        self.balance += amount
 
     def withdraw(self, amount: float) -> None:
-        if amount <= 0.0 or amount > self._balance:
+        if amount <= 0.0 or amount > self.balance:
             raise ValueError(
                 "Amount must be positive and smaller than balance."
             )
 
-        self._balance -= amount
+        self.balance -= amount
 
     def add_interest(self) -> None:
-        self._balance += self._balance * self._interest_rate
+        self.balance += self.balance * self._interest_rate
 
     def __repr__(self) -> str:
-        return f"Balance: {self._balance}. Interest rate: {self.interest_rate}"
+        return f"Balance: {self.balance}. Interest rate: {self.interest_rate}"
 
 
 def main() -> None:

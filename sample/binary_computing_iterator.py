@@ -22,13 +22,24 @@ class BinaryComputingIterator:
         return self
 
     def __next__(self) -> float:
-        it_1 = next(self.iterator_1, self.default_1)
-        it_2 = next(self.iterator_2, self.default_2)
+        thrown = False
+        try:
+            it_1 = next(self.iterator_1)
+        except StopIteration:
+            it_1 = self.default_1
+            thrown = True
+
+        try:
+            it_2 = next(self.iterator_2)
+        except StopIteration as exc:
+            if thrown:
+                raise exc
+            it_2 = self.default_2
 
         if it_1 is None or it_2 is None:
             raise StopIteration
 
-        return self.operator(it_1, it_2)  # type: ignore
+        return self.operator(it_1, it_2)
 
 
 def main() -> None:

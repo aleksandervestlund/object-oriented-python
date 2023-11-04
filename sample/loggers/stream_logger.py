@@ -28,7 +28,7 @@ def main() -> None:
     sl_1 = StreamLogger(sys.stdout)
     sl_1.log(Severity.INFO, "Hello", None)
 
-    with open("loggers/log.txt", "w", encoding="utf-8") as file:
+    with open("sample/loggers/log.txt", "w", encoding="utf-8") as file:
         sl_2 = StreamLogger(file)
         sl_2.log(Severity.WARNING, "Very important", TypeError("TypeError"))
 

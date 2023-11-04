@@ -20,13 +20,7 @@ class Location:
 
 
 def main() -> None:
-    location = Location()
-    print(location)
-    for _ in range(9):
-        location.down()
-    for _ in range(11):
-        location.right()
-    print(location)
+    pass
 
 
 if __name__ == "__main__":

@@ -1,1 +1,1 @@
-info: Hello (<class 'TypeError'>)
+warning: Very important (TypeError)
