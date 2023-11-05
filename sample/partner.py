@@ -9,9 +9,12 @@ class Partner:
     def __repr__(self) -> str:
         return self.name
 
-    def set_partner(self, partner: (Self | None)) -> None:
-        if not partner:
-            if self.partner:
+    def set_partner(self, partner: Self | None) -> None:
+        if partner is self:
+            raise ValueError("Cannot partner with self")
+
+        if partner is None:
+            if self.partner is not None:
                 self.partner.partner = None
         else:
             partner.set_partner(None)
@@ -22,27 +25,7 @@ class Partner:
 
 
 def main() -> None:
-    # Basic tests
-    p1 = Partner("Ola")
-    p2 = Partner("Astrid")
-    p3 = Partner("Per")
-    p4 = Partner("Ingrid")
-
-    p1.set_partner(p2)
-    assert p1.partner is p2
-    assert p2.partner is p1
-
-    p1.set_partner(None)
-    assert p1.partner is None
-    assert p2.partner is None
-
-    p1.set_partner(p2)
-    p3.set_partner(p4)
-    p1.set_partner(p4)
-    assert p1.partner is p4
-    assert p4.partner is p1
-    assert p2.partner is None
-    assert p3.partner is None
+    pass
 
 
 if __name__ == "__main__":

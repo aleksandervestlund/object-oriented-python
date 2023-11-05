@@ -2,26 +2,27 @@ from io import StringIO
 
 
 class Nim:
-    def __init__(self, pile_size: int = 10) -> None:
-        self.piles = [[None for _ in range(pile_size)] for _ in range(3)]
+    def __init__(self, pile_size: int) -> None:
+        self.piles = [pile_size for _ in range(3)]
 
     def remove_pieces(self, number: int, target_pile: int) -> None:
         if not self.is_valid_move(number, target_pile):
             raise ValueError("Illegal move.")
 
-        for _ in range(number):
-            self.piles[target_pile].pop()
+        self.piles[target_pile] -= number
 
     def is_valid_move(self, number: int, target_pile: int) -> bool:
-        if number <= 0 or not 0 <= target_pile <= 2:
-            return False
-        return not any(len(pile) < number for pile in self.piles)
+        return (
+            not self.is_game_over()
+            and 0 <= target_pile < 3
+            and 0 < number <= self.piles[target_pile]
+        )
 
     def is_game_over(self) -> bool:
         return not all(pile for pile in self.piles)
 
     def get_pile(self, target_pile: int) -> int:
-        return len(self.piles[target_pile])
+        return self.piles[target_pile]
 
     def __repr__(self) -> str:
         string = StringIO()

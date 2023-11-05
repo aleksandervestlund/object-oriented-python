@@ -1,9 +1,12 @@
 import string
 
 
+CHARACTERS = string.digits + string.ascii_uppercase
+
+
 class Digit:
     def __init__(self, base: int) -> None:
-        if not 1 < base <= 36:
+        if not 1 < base <= len(CHARACTERS):
             raise ValueError("Base must be positive and smaller than 36.")
 
         self.base = base
@@ -17,9 +20,7 @@ class Digit:
         return False
 
     def __repr__(self) -> str:
-        convert_string = string.digits + string.ascii_uppercase
-        number = self.value % self.base
-        return convert_string[number]
+        return CHARACTERS[self.value % self.base]
 
 
 def main() -> None:

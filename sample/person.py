@@ -38,9 +38,9 @@ class Person:
             self.children.remove(child)
 
         if child.father is self:
-            child.father = None
+            child._father = None
         elif child.mother is self:
-            child.mother = None
+            child._mother = None
 
     @property
     def mother(self) -> Self | None:
@@ -48,8 +48,11 @@ class Person:
 
     @mother.setter
     def mother(self, mother: Self | None) -> None:
-        if mother is not None and self.gender is not Gender.FEMALE:
+        if mother is not None and mother.gender is not Gender.FEMALE:
             raise ValueError("Mother is male.")
+        if mother is self:
+            raise ValueError("Cannot be own mother.")
+
         if self.mother is not None:
             self.mother.remove_child(self)
 
@@ -63,8 +66,11 @@ class Person:
 
     @father.setter
     def father(self, father: Self | None) -> None:
-        if father is not None and self.gender is not Gender.MALE:
-            raise ValueError("Mother is male.")
+        if father is not None and father.gender is not Gender.MALE:
+            raise ValueError("Father is female.")
+        if father is self:
+            raise ValueError("Cannot be own father.")
+
         if self.father is not None:
             self.father.remove_child(self)
 
