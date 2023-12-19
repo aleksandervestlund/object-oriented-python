@@ -1,4 +1,5 @@
 from collections.abc import Iterator
+
 from string_grid import StringGrid
 
 

@@ -1,4 +1,4 @@
-from highscore_lists.highscore_list import HighscoreList
+from highscore_list import HighscoreList
 
 
 class HighscoreListProgram:

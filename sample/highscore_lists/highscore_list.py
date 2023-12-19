@@ -1,5 +1,10 @@
 from __future__ import annotations
-from highscore_list_listener import HighscoreListListener
+from typing import Protocol
+
+
+class HighscoreListListener(Protocol):
+    def list_changed(self, highscore_list: HighscoreList, idx: int) -> None:
+        ...
 
 
 class HighscoreList:

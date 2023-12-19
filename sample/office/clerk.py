@@ -1,4 +1,5 @@
 from collections.abc import Callable
+
 from employee import Employee
 from printer import Printer
 
