@@ -1,6 +1,5 @@
 from __future__ import annotations
 from enum import Enum, auto
-from typing import Self
 
 
 class Types(Enum):
@@ -54,7 +53,7 @@ class Merchant:
         item.change_owner(None)
         self.inventory.remove(item)
 
-    def sell_item(self, item: Item, buyer: Self) -> None:
+    def sell_item(self, item: Item, buyer: Merchant) -> None:
         item_price = item.price
 
         if item not in self.inventory:

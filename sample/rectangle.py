@@ -1,4 +1,4 @@
-from typing import Self
+from __future__ import annotations
 
 
 class Rectangle:
@@ -37,7 +37,7 @@ class Rectangle:
             and self.get_min_y() <= y <= self.get_max_y()
         )
 
-    def contains_rectangle(self, rectangle: Self) -> bool:
+    def contains_rectangle(self, rectangle: Rectangle) -> bool:
         return self.contains_point(
             rectangle.x1, rectangle.y1
         ) and self.contains_point(rectangle.x2, rectangle.y2)
@@ -68,13 +68,13 @@ class Rectangle:
                 self.y1 = y
         return True
 
-    def add_rectangle(self, rectangle: Self) -> bool:
+    def add_rectangle(self, rectangle: Rectangle) -> bool:
         if self.add_point(rectangle.x1, rectangle.y1):
             self.add_point(rectangle.x2, rectangle.y2)
             return True
         return self.add_point(rectangle.x2, rectangle.y2)
 
-    def union(self, rectangle: Self) -> Self:
+    def union(self, rectangle: Rectangle) -> Rectangle:
         return Rectangle(
             min(self.get_min_x(), rectangle.get_min_x()),
             min(self.get_min_y(), rectangle.get_min_y()),
@@ -82,7 +82,9 @@ class Rectangle:
             max(self.get_max_y(), rectangle.get_max_y()),
         )
 
-    def intersection(self, rectangle: Self) -> Self:
+    def intersection(self, rectangle: Rectangle) -> Rectangle | None:
+        if not self.intersects(rectangle):
+            return None
         return Rectangle(
             max(self.get_min_x(), rectangle.get_min_x()),
             max(self.get_min_y(), rectangle.get_min_y()),
@@ -90,7 +92,7 @@ class Rectangle:
             min(self.get_max_y(), rectangle.get_max_y()),
         )
 
-    def intersects(self, rectangle: Self) -> bool:
+    def intersects(self, rectangle: Rectangle) -> bool:
         if self.contains_point(
             rectangle.x1, rectangle.y1
         ) or self.contains_point(rectangle.x2, rectangle.y2):

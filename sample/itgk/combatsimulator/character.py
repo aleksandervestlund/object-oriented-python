@@ -1,5 +1,5 @@
+from __future__ import annotations
 import random
-from typing import Self
 
 from item import Item, ItemType
 
@@ -42,7 +42,7 @@ class Character:
 
         self.hp -= damage * (200 - self.armor) / 200
 
-    def attack(self, character: Self) -> None:
+    def attack(self, character: Character) -> None:
         if self._luck_roll():
             character.take_damage(2 * self.damage)
         else:

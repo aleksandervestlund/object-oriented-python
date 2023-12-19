@@ -1,15 +1,15 @@
-from typing import Self
+from __future__ import annotations
 
 
 class Partner:
     def __init__(self, name: str) -> None:
         self.name = name
-        self.partner: Self | None = None
+        self.partner: Partner | None = None
 
     def __repr__(self) -> str:
         return self.name
 
-    def set_partner(self, partner: Self | None) -> None:
+    def set_partner(self, partner: Partner | None) -> None:
         if partner is self:
             raise ValueError("Cannot partner with self")
 

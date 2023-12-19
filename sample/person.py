@@ -1,5 +1,5 @@
+from __future__ import annotations
 from enum import Enum, auto
-from typing import Self
 
 
 class Gender(Enum):
@@ -21,10 +21,10 @@ class Person:
     # def __len__(self) -> int:
     #     return len(self.children)
 
-    def get_child(self, n: int) -> Self:
+    def get_child(self, n: int) -> Person:
         return self.children[n]
 
-    def add_child(self, child: Self) -> None:
+    def add_child(self, child: Person) -> None:
         if child not in self.children:
             self.children.append(child)
 
@@ -33,7 +33,7 @@ class Person:
         elif child.father is not self and self.gender is Gender.MALE:
             child.father = self
 
-    def remove_child(self, child: Self) -> None:
+    def remove_child(self, child: Person) -> None:
         if child in self.children:
             self.children.remove(child)
 
@@ -43,11 +43,11 @@ class Person:
             child._mother = None
 
     @property
-    def mother(self) -> Self | None:
+    def mother(self) -> Person | None:
         return self._mother
 
     @mother.setter
-    def mother(self, mother: Self | None) -> None:
+    def mother(self, mother: Person | None) -> None:
         if mother is not None and mother.gender is not Gender.FEMALE:
             raise ValueError("Mother is male.")
         if mother is self:
@@ -61,11 +61,11 @@ class Person:
             self.mother.add_child(self)
 
     @property
-    def father(self) -> Self | None:
+    def father(self) -> Person | None:
         return self._father
 
     @father.setter
-    def father(self, father: Self | None) -> None:
+    def father(self, father: Person | None) -> None:
         if father is not None and father.gender is not Gender.MALE:
             raise ValueError("Father is female.")
         if father is self:

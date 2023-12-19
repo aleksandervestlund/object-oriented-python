@@ -1,4 +1,4 @@
-from typing import Self
+from __future__ import annotations
 from highscore_list_listener import HighscoreListListener
 
 
@@ -9,7 +9,7 @@ class HighscoreList:
         self.results: list[int] = []
         self.highscore_list_listeners: list[HighscoreListListener] = []
 
-    def list_changed(self, highscore_list: Self, idx: int) -> None:
+    def list_changed(self, highscore_list: HighscoreList, idx: int) -> None:
         for listener in self.highscore_list_listeners:
             listener.list_changed(highscore_list, idx)
 

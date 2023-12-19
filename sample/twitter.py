@@ -1,5 +1,4 @@
 from __future__ import annotations
-from typing import Self
 
 
 class Tweet:
@@ -8,7 +7,7 @@ class Tweet:
         owner: TwitterAccount,
         *,
         text: str = "",
-        original_tweet: Self | None = None,
+        original_tweet: Tweet | None = None,
     ) -> None:
         if original_tweet:
             if text:
@@ -33,18 +32,18 @@ class TwitterAccount:
         self.followers: list[TwitterAccount] = []
         self.name = name
 
-    def follow(self, account: Self) -> None:
+    def follow(self, account: TwitterAccount) -> None:
         account.followers.append(self)
         self.following.append(self)
 
-    def unfollow(self, account: Self) -> None:
+    def unfollow(self, account: TwitterAccount) -> None:
         account.followers.remove(self)
         self.following.remove(self)
 
-    def is_following(self, account: Self) -> bool:
+    def is_following(self, account: TwitterAccount) -> bool:
         return account in self.following
 
-    def is_followed_by(self, account: Self) -> bool:
+    def is_followed_by(self, account: TwitterAccount) -> bool:
         return account.is_following(self)
 
     def tweet(self, text: str) -> None:
