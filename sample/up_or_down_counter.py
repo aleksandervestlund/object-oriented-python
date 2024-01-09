@@ -7,6 +7,8 @@ class UpOrDownCounter:
         self.direction = 1 if start < end else -1
 
     def count(self) -> bool:
+        if self.counter == self.end:
+            return False
         self.counter += self.direction
         return self.counter != self.end
 

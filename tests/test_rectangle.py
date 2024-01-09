@@ -63,26 +63,15 @@ class TestRectangle(TestCase):
         y3 = 33
 
         rect = Rectangle(x1, y1, x2, y2)
-
         self._test_add(rect, x3, y3, True)
 
-        min_x1_x2 = min(x1, x2)
-        min_y1_y2 = min(y1, y2)
-        max_x1_x2 = max(x1, x2)
-        max_y1_y2 = max(y1, y2)
-        min_x1_x2_x3 = min(min_x1_x2, x3)
-        min_y1_y2_y3 = min(min_y1_y2, y3)
-        max_x1_x2_x3 = max(max_x1_x2, x3)
-        max_y1_y2_y3 = max(max_y1_y2, y3)
+        min_x = min(x1, x2, x3)
+        min_y = min(y1, y2, y3)
+        max_x = max(x1, x2, x3)
+        max_y = max(y1, y2, y3)
 
         self._assert_values(
-            rect,
-            min_x1_x2_x3,
-            min_y1_y2_y3,
-            max_x1_x2_x3,
-            max_y1_y2_y3,
-            max_x1_x2_x3 - min_x1_x2_x3,
-            max_y1_y2_y3 - min_y1_y2_y3,
+            rect, min_x, min_y, max_x, max_y, max_x - min_x, max_y - min_y
         )
 
     def test_add_same_x_y(self) -> None:
@@ -93,37 +82,21 @@ class TestRectangle(TestCase):
         x3 = 15
         y3 = 33
 
-        min_x1_x2 = min(x1, x2)
-        min_y1_y2 = min(y1, y2)
-        max_x1_x2 = max(x1, x2)
-        max_y1_y2 = max(y1, y2)
-        min_x1_x2_x3 = min(min_x1_x2, x3)
-        min_y1_y2_y3 = min(min_y1_y2, y3)
-        max_x1_x2_x3 = max(max_x1_x2, x3)
-        max_y1_y2_y3 = max(max_y1_y2, y3)
-
         rect = Rectangle(x1, y1, x2, y2)
-
         self._test_add(rect, x3, y3, True)
+
+        min_x = min(x1, x2, x3)
+        min_y = min(y1, y2, y3)
+        max_x = max(x1, x2, x3)
+        max_y = max(y1, y2, y3)
+
         self._assert_values(
-            rect,
-            min_x1_x2_x3,
-            min_y1_y2_y3,
-            max_x1_x2_x3,
-            max_y1_y2_y3,
-            max_x1_x2_x3 - min_x1_x2_x3,
-            max_y1_y2_y3 - min_y1_y2_y3,
+            rect, min_x, min_y, max_x, max_y, max_x - min_x, max_y - min_y
         )
 
         self._test_add(rect, x3, y3, False)
         self._assert_values(
-            rect,
-            min_x1_x2_x3,
-            min_y1_y2_y3,
-            max_x1_x2_x3,
-            max_y1_y2_y3,
-            max_x1_x2_x3 - min_x1_x2_x3,
-            max_y1_y2_y3 - min_y1_y2_y3,
+            rect, min_x, min_y, max_x, max_y, max_x - min_x, max_y - min_y
         )
 
     def test_add_rectangle(self) -> None:
@@ -143,12 +116,12 @@ class TestRectangle(TestCase):
         max_x1_x3 = max(x1, x3)
         max_y1_y3 = max(y1, y3)
 
-        min_x1_x2_x3 = min(min_x1_x2, x3)
-        min_y1_y2_y3 = min(min_y1_y2, y3)
-        max_x1_x2_x3 = max(max_x1_x2, x3)
-        max_y1_y2_y3 = max(max_y1_y2, y3)
-        width_x1_x2_x3 = max_x1_x2_x3 - min_x1_x2_x3
-        height_x1_x2_x3 = max_y1_y2_y3 - min_y1_y2_y3
+        min_x = min(min_x1_x2, x3)
+        min_y = min(min_y1_y2, y3)
+        max_x = max(max_x1_x2, x3)
+        max_y = max(max_y1_y2, y3)
+        width_x = max_x - min_x
+        height_x = max_y - min_y
 
         rect = Rectangle(x1, y1, x2, y2)
         self._assert_values(
@@ -174,13 +147,7 @@ class TestRectangle(TestCase):
 
         self.assertTrue(rect.add_rectangle(rect_2))
         self._assert_values(
-            rect,
-            min_x1_x2_x3,
-            min_y1_y2_y3,
-            max_x1_x2_x3,
-            max_y1_y2_y3,
-            width_x1_x2_x3,
-            height_x1_x2_x3,
+            rect, min_x, min_y, max_x, max_y, width_x, height_x
         )
 
     def test_add_same_rectangle(self) -> None:
@@ -191,20 +158,16 @@ class TestRectangle(TestCase):
 
         width = abs(x1 - x2)
         height = abs(y1 - y2)
-        min_x1_x2 = min(x1, x2)
-        min_y1_y2 = min(y1, y2)
-        max_x1_x2 = max(x1, x2)
-        max_y1_y2 = max(y1, y2)
+        min_x = min(x1, x2)
+        min_y = min(y1, y2)
+        max_x = max(x1, x2)
+        max_y = max(y1, y2)
 
         rect = Rectangle(x1, y1, x2, y2)
-        self._assert_values(
-            rect, min_x1_x2, min_y1_y2, max_x1_x2, max_y1_y2, width, height
-        )
+        self._assert_values(rect, min_x, min_y, max_x, max_y, width, height)
 
         self.assertFalse(rect.add_rectangle(rect))
-        self._assert_values(
-            rect, min_x1_x2, min_y1_y2, max_x1_x2, max_y1_y2, width, height
-        )
+        self._assert_values(rect, min_x, min_y, max_x, max_y, width, height)
 
     def test_union(self) -> None:
         x1 = 13
@@ -305,7 +268,6 @@ class TestRectangle(TestCase):
         intersection = rect_1.intersection(rect_2)
         self.assertIsNotNone(intersection)
         self._assert_values(intersection, 3, 3, 5, 5, 2, 2)  # type: ignore
-
         self.assertTrue(rect_1.intersects(rect_2))
 
     def test_non_intersection(self) -> None:

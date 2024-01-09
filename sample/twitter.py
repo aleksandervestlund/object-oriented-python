@@ -9,59 +9,58 @@ class Tweet:
         text: str = "",
         original_tweet: Tweet | None = None,
     ) -> None:
-        if original_tweet:
+        if original_tweet is not None:
             if text:
                 raise ValueError(
                     "Cannot be both tweet and retweet at the same time."
                 )
-            if original_tweet.owner is self:
+            if original_tweet.owner is owner:
                 raise ValueError("Cannot retweet own tweet.")
 
-            original_tweet.retweets += 1
+            if (
+                temp_original_tweet := original_tweet.original_tweet
+            ) is not None:
+                original_tweet = temp_original_tweet
+            text = original_tweet.text
+            original_tweet.retweet_count += 1
 
-        self.retweets = 0
+        self.retweet_count = 0
         self.owner = owner
         self.text = text
         self.original_tweet = original_tweet
 
 
 class TwitterAccount:
-    def __init__(self, name: str) -> None:
+    def __init__(self, username: str) -> None:
         self.tweets: list[Tweet] = []
-        self.following: list[TwitterAccount] = []
         self.followers: list[TwitterAccount] = []
-        self.name = name
+        self.username = username
 
     def follow(self, account: TwitterAccount) -> None:
         account.followers.append(self)
-        self.following.append(self)
 
     def unfollow(self, account: TwitterAccount) -> None:
         account.followers.remove(self)
-        self.following.remove(self)
 
     def is_following(self, account: TwitterAccount) -> bool:
-        return account in self.following
+        return account.is_followed_by(self)
 
     def is_followed_by(self, account: TwitterAccount) -> bool:
-        return account.is_following(self)
+        return account in self.followers
 
     def tweet(self, text: str) -> None:
-        self.tweets.append(Tweet(self, text=text))
+        self.tweets.insert(0, Tweet(self, text=text))
 
     def retweet(self, original_tweet: Tweet) -> None:
         self.tweets.append(Tweet(self, original_tweet=original_tweet))
 
     def get_tweet(self, n: int) -> Tweet:
-        if not 0 < n <= self.get_tweet_size():
+        if not 0 < n <= len(self.tweets):
             raise ValueError("Illegal index.")
-        return self.tweets[n]
-
-    def get_tweet_size(self) -> int:
-        return len(self.tweets)
+        return self.tweets[n - 1]
 
     def get_retweet_count(self) -> int:
-        return sum(tweet.retweets for tweet in self.tweets)
+        return sum(tweet.retweet_count for tweet in self.tweets)
 
 
 def main() -> None:

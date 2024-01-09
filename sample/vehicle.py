@@ -7,10 +7,10 @@ class VehicleType(Enum):
 
 
 class FuelType(Enum):
-    GASOLINE = auto()
     DIESEL = auto()
-    HYDROGEN = auto()
     ELECTRIC = auto()
+    GASOLINE = auto()
+    HYDROGEN = auto()
 
 
 class Vehicle:
@@ -20,9 +20,19 @@ class Vehicle:
         fuel_type: FuelType,
         registration_number: str,
     ) -> None:
+        if not isinstance(vehicle_type, VehicleType):
+            raise ValueError("Invalid vehicle type.")
+        if not isinstance(fuel_type, FuelType):
+            raise ValueError("Invalid fuel type.")
+        if (
+            vehicle_type is VehicleType.MOTORCYCLE
+            and fuel_type is FuelType.HYDROGEN
+        ):
+            raise ValueError("Invalid combination.")
+
         self.vehicle_type = vehicle_type
         self.fuel_type = fuel_type
-        self._registration_number = registration_number
+        self.registration_number = registration_number
 
     @property
     def registration_number(self) -> str:
@@ -30,38 +40,30 @@ class Vehicle:
 
     @registration_number.setter
     def registration_number(self, registration_number: str) -> None:
-        registration_number = registration_number.upper()
+        letters = registration_number[:2]
+        digits = registration_number[2:]
+
+        if not (letters.isalpha() and letters.isupper()):
+            raise ValueError("Two first characters must be uppercase letters.")
+        if not digits.isdigit():
+            raise ValueError("Last characters must be digits.")
+        if any(letter in letters for letter in "ÆØÅ"):
+            raise ValueError("Letters must not be Æ, Ø or Å.")
+        if self.vehicle_type is VehicleType.CAR and len(digits) != 5:
+            raise ValueError("Registration number must be 5 digits for cars.")
+        if self.vehicle_type is VehicleType.MOTORCYCLE and len(digits) != 4:
+            raise ValueError(
+                "Registration number must be 4 digits for motorcycles."
+            )
+
         if self.fuel_type is FuelType.ELECTRIC:
-            if not (
-                registration_number.startswith("EK")
-                or registration_number.startswith("EL")
-            ):
+            if not (letters == "EK" or letters == "EL"):
                 raise ValueError("Invalid registration number.")
         elif self.fuel_type is FuelType.HYDROGEN:
-            if not registration_number.startswith("HY"):
+            if letters != "HY":
                 raise ValueError("Invalid registration number.")
-        elif (
-            registration_number.startswith("HY")
-            or registration_number.startswith("EK")
-            or registration_number.startswith("EL")
-        ):
+        elif letters in {"HY", "EK", "EL"}:
             raise ValueError("Invalid registration number.")
-
-        if (
-            self.vehicle_type is VehicleType.CAR
-            and len(registration_number) != 7
-        ):
-            raise ValueError("Invalid length.")
-        if (
-            self.vehicle_type is VehicleType.MOTORCYCLE
-            and len(registration_number) != 6
-        ):
-            raise ValueError("Invalid length.")
-
-        if not registration_number[:2].isalpha():
-            raise ValueError("Two first characters must be letters.")
-        if not registration_number[2:].isdigit():
-            raise ValueError("Last characters must be digits.")
 
         self._registration_number = registration_number
 

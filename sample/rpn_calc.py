@@ -27,7 +27,6 @@ class RPNCalc:
     ) -> bool:
         if symbol in self.operators:
             return False
-
         self.operators[symbol] = operator
         return True
 
