@@ -1,4 +1,4 @@
-from account import Account
+from sample.savings_accounts.account import Account
 
 
 class SavingsAccount(Account):

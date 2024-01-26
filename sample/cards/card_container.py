@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from card import Card
+from sample.cards.card import Card
 
 
 class CardContainer(ABC):

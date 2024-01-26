@@ -1,5 +1,5 @@
-from stock import Stock
-from stock_listener import StockListener
+from sample.stocks.stock import Stock
+from sample.stocks.stock_listener import StockListener
 
 
 class SmartStock(Stock):

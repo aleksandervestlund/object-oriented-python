@@ -1,7 +1,7 @@
 from __future__ import annotations
 import random
 
-from item import Item, ItemType
+from sample.itgk.combatsimulator.item import Item, ItemType
 
 
 def _assert_non_negative(amount: float) -> None:

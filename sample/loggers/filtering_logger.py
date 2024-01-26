@@ -1,4 +1,4 @@
-from i_logger import ILogger, Severity
+from sample.loggers.i_logger import ILogger, Severity
 
 
 class FilteringLogger(ILogger):

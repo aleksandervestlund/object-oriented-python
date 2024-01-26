@@ -1,7 +1,7 @@
 from collections.abc import Iterator
 
-from string_grid import StringGrid
-from string_grid_iterator import StringGridIterator
+from sample.string_grids.string_grid import StringGrid
+from sample.string_grids.string_grid_iterator import StringGridIterator
 
 
 class StringGridImpl(StringGrid):

@@ -1,6 +1,6 @@
-from card import SUITS, Card
-from card_container_impl import CardContainerImpl
-from card_hand import CardHand
+from sample.cards.card import SUITS, Card
+from sample.cards.card_container_impl import CardContainerImpl
+from sample.cards.card_hand import CardHand
 
 
 class CardDeck(CardContainerImpl):

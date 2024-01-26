@@ -1,4 +1,4 @@
-from savings_account import SavingsAccount
+from sample.savings_accounts.savings_account import SavingsAccount
 
 
 class ForeldreSpar(SavingsAccount):

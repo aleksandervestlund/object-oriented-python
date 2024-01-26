@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from observable_list import ObservableList
+from sample.observable_highscore_lists.observable_list import ObservableList
 
 
 class ObservableListListener(Protocol):

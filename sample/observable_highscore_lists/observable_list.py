@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 
-from observable_list_listener import ObservableListListener
+from sample.observable_highscore_lists.observable_list_listener import (
+    ObservableListListener,
+)
 
 
 class ObservableList(ABC):

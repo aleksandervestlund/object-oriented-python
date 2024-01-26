@@ -1,5 +1,7 @@
-from observable_highscore_list import ObservableHighscoreList
-from observable_list import ObservableList
+from sample.observable_highscore_lists.observable_highscore_list import (
+    ObservableHighscoreList,
+)
+from sample.observable_highscore_lists.observable_list import ObservableList
 
 
 class ObservableHighscoreListProgram:

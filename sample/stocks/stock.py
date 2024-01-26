@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from stock_listener import StockListener
+from sample.stocks.stock_listener import StockListener
 
 
 class Stock:

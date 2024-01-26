@@ -1,4 +1,4 @@
-from train_car import TrainCar
+from sample.trains.train_car import TrainCar
 
 
 class CargoCar(TrainCar):

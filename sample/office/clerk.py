@@ -1,7 +1,7 @@
 from collections.abc import Callable
 
-from employee import Employee
-from printer import Printer
+from sample.office.employee import Employee
+from sample.office.printer import Printer
 
 
 class Clerk(Employee):

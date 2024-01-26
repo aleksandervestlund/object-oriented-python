@@ -1,4 +1,4 @@
-from named import Named
+from sample.names.named import Named
 
 
 class Person1(Named):

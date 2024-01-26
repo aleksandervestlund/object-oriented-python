@@ -1,4 +1,4 @@
-from abstract_account import AbstractAccount
+from sample.accounts.abstract_account import AbstractAccount
 
 
 class DebitAccount(AbstractAccount):

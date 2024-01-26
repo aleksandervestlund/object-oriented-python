@@ -1,4 +1,4 @@
-from stock import Stock
+from sample.stocks.stock import Stock
 
 
 class StockIndex:

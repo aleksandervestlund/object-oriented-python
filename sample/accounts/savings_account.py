@@ -1,7 +1,7 @@
-from abstract_account import AbstractAccount
+from sample.accounts.abstract_account import AbstractAccount
 
 
-class DebitAccount(AbstractAccount):
+class SavingsAccount(AbstractAccount):
     def __init__(self, withdrawals: int, fee: float) -> None:
         super().__init__()
         if fee < 0.0 or withdrawals < 0:
@@ -17,7 +17,9 @@ class DebitAccount(AbstractAccount):
             raise ValueError(
                 "Amount must be positive and smaller than balance."
             )
-        if not self.withdrawals:
+        if self.withdrawals:
+            self.withdrawals -= 1
+        else:
             if self.balance - amount - self.fee < 0.0:
                 raise ValueError("Cannot afford fee.")
 

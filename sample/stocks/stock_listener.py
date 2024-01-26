@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from stock import Stock
+from sample.stocks.stock import Stock
 
 
 class StockListener(Protocol):

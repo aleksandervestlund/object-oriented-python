@@ -1,4 +1,4 @@
-from stop_watch import StopWatch
+from sample.stop_watches.stop_watch import StopWatch
 
 
 class StopWatchManager:

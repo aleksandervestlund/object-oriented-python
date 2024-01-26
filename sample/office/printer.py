@@ -1,4 +1,4 @@
-from employee import Employee
+from sample.office.employee import Employee
 
 
 class Printer:

@@ -1,7 +1,7 @@
-from abstract_account import AbstractAccount
+from sample.accounts.abstract_account import AbstractAccount
 
 
-class DebitAccount(AbstractAccount):
+class CreditAccount(AbstractAccount):
     def __init__(self, credit_line: float) -> None:
         super().__init__()
         self._credit_line = credit_line

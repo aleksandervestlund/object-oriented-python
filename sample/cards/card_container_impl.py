@@ -1,5 +1,5 @@
-from card import Card
-from card_container import CardContainer
+from sample.cards.card import Card
+from sample.cards.card_container import CardContainer
 
 
 class CardContainerImpl(CardContainer):

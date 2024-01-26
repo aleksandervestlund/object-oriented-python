@@ -1,6 +1,6 @@
-from cargo_car import CargoCar
-from passenger_car import PassengerCar
-from train_car import TrainCar
+from sample.trains.cargo_car import CargoCar
+from sample.trains.passenger_car import PassengerCar
+from sample.trains.train_car import TrainCar
 
 
 class Train:
