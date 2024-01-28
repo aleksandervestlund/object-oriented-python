@@ -14,10 +14,6 @@ class HighscoreList:
         self.results: list[int] = []
         self.highscore_list_listeners: list[HighscoreListListener] = []
 
-    def list_changed(self, highscore_list: HighscoreList, idx: int) -> None:
-        for listener in self.highscore_list_listeners:
-            listener.list_changed(highscore_list, idx)
-
     def size(self) -> int:
         return len(self.results)
 
@@ -25,13 +21,19 @@ class HighscoreList:
         return self.results[index]
 
     def add_result(self, result: int) -> None:
-        self.results.append(result)
-        self.results.sort(reverse=True)
-        self.results = self.results[: self.max_size]
+        if self.size() == self.max_size and result >= self.results[-1]:
+            return
 
-        self.list_changed(
-            self, len(self.results) - 1 - self.results[::-1].index(result)
-        )
+        self.results.append(result)
+        self.results.sort()
+
+        if self.size() > self.max_size:
+            self.results.pop()
+
+        for listener in self.highscore_list_listeners:
+            listener.list_changed(
+                self, len(self.results) - 1 - self.results[::-1].index(result)
+            )
 
     def add_highscore_list_listener(
         self, listener: HighscoreListListener

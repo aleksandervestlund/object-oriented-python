@@ -16,15 +16,15 @@ class HighscoreListProgram:
         while True:
             try:
                 self.highscore_list.add_result(int(input("Enter result: ")))
-            except ValueError:
+            except (KeyboardInterrupt, ValueError):
                 break
 
         print(f"Program terminated. Result was {self.highscore_list.results}.")
 
 
 def main() -> None:
-    hls = HighscoreListProgram()
-    hls.run()
+    highscore_list_program = HighscoreListProgram()
+    highscore_list_program.run()
 
 
 if __name__ == "__main__":
