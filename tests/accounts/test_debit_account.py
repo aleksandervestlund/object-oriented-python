@@ -1,9 +1,9 @@
-import unittest
+from unittest import TestCase
 
 from sample.accounts.debit_account import DebitAccount
 
 
-class DebitAccountTest(unittest.TestCase):
+class DebitAccountTest(TestCase):
     def setUp(self) -> None:
         self.account = DebitAccount()
 

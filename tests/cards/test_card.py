@@ -1,9 +1,9 @@
-import unittest
+from unittest import TestCase
 
-from sample.cards.card import Card
+from sample.cards.card_container import Card
 
 
-class CardTest(unittest.TestCase):
+class CardTest(TestCase):
     def _check_card(self, card: Card, suit: str, face: int) -> None:
         self.assertEqual(card.suit, suit)
         self.assertEqual(card.face, face)

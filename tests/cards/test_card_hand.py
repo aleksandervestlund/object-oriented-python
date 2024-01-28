@@ -1,9 +1,7 @@
 from collections.abc import Iterator
 from unittest import TestCase
 
-from sample.cards.card import Card
-from sample.cards.card_container import CardContainer
-from sample.cards.card_container_impl import CardContainerImpl
+from sample.cards.card_container import Card, CardContainer
 from sample.cards.card_hand import CardHand
 
 
@@ -36,7 +34,7 @@ class CardHandTest(TestCase):
             self.assertEqual(expected_card.face, actual_card.face)
 
     def test_card_count(self) -> None:
-        self.assertIsInstance(self.hand, CardContainerImpl)
+        self.assertIsInstance(self.hand, CardContainer)
         self.assertEqual(0, self.hand.get_card_count())
         self.hand.add_card(self.s1)
         self.hand.add_card(self.c2)

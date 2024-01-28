@@ -1,8 +1,7 @@
-from sample.cards.card import Card
-from sample.cards.card_container_impl import CardContainerImpl
+from sample.cards.card_container import Card, CardContainer
 
 
-class CardHand(CardContainerImpl):
+class CardHand(CardContainer):
     def add_card(self, card: Card) -> None:
         self.cards.append(card)
 

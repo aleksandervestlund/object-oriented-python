@@ -1,7 +1,6 @@
 from typing import Self
 
-from sample.cards.card import Card
-from sample.cards.card_container import CardContainer
+from sample.cards.card_container import Card, CardContainer
 
 
 class CardContainerIterator:

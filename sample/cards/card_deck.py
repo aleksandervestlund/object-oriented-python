@@ -1,9 +1,8 @@
-from sample.cards.card import SUITS, Card
-from sample.cards.card_container_impl import CardContainerImpl
+from sample.cards.card_container import SUITS, Card, CardContainer
 from sample.cards.card_hand import CardHand
 
 
-class CardDeck(CardContainerImpl):
+class CardDeck(CardContainer):
     def __init__(self, n: int) -> None:
         super().__init__()
         if not 0 <= n <= 13:

@@ -1,9 +1,9 @@
-import unittest
+from unittest import TestCase
 
 from sample.accounts.credit_account import CreditAccount
 
 
-class CreditAccountTest(unittest.TestCase):
+class CreditAccountTest(TestCase):
     def setUp(self) -> None:
         self.account = CreditAccount(10000.0)
 

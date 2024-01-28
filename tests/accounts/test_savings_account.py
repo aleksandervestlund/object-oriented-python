@@ -1,9 +1,9 @@
-import unittest
+from unittest import TestCase
 
 from sample.accounts.savings_account import SavingsAccount
 
 
-class SavingsAccountTest(unittest.TestCase):
+class SavingsAccountTest(TestCase):
     def setUp(self):
         self.account = SavingsAccount(1, 50.0)
 
