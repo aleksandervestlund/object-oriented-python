@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from sample.cards.card_container import Card
+from sample.cards.card import Card
 
 
 class CardTest(TestCase):

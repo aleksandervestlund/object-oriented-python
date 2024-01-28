@@ -1,4 +1,5 @@
-from sample.cards.card_container import Card, CardContainer
+from sample.cards.card import Card
+from sample.cards.card_container import CardContainer
 
 
 class CardHand(CardContainer):

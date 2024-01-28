@@ -1,7 +1,8 @@
 from collections.abc import Iterator
 from unittest import TestCase
 
-from sample.cards.card_container import Card, CardContainer
+from sample.cards.card import Card
+from sample.cards.card_container import CardContainer
 from sample.cards.card_hand import CardHand
 
 
