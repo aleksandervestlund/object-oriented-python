@@ -26,7 +26,7 @@ class BinaryComputingIterator:
         try:
             it_1 = next(self.iterator_1)
         except StopIteration:
-            it_1 = self.default_1
+            it_1 = self.default_1  # type: ignore
             thrown = True
 
         try:
@@ -34,7 +34,7 @@ class BinaryComputingIterator:
         except StopIteration as exc:
             if thrown:
                 raise exc
-            it_2 = self.default_2
+            it_2 = self.default_2  # type: ignore
 
         if it_1 is None or it_2 is None:
             raise StopIteration

@@ -14,15 +14,15 @@ class Tweet:
                 raise ValueError(
                     "Cannot be both tweet and retweet at the same time."
                 )
-            if original_tweet.owner is owner:
+            if original_tweet.owner is owner:  # type: ignore
                 raise ValueError("Cannot retweet own tweet.")
 
             if (
-                temp_original_tweet := original_tweet.original_tweet
+                temp_original_tweet := original_tweet.original_tweet  # type: ignore
             ) is not None:
                 original_tweet = temp_original_tweet
-            text = original_tweet.text
-            original_tweet.retweet_count += 1
+            text = original_tweet.text  # type: ignore
+            original_tweet.retweet_count += 1  # type: ignore
 
         self.retweet_count = 0
         self.owner = owner

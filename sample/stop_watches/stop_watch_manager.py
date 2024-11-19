@@ -2,7 +2,7 @@ from sample.stop_watches.stop_watch import StopWatch
 
 
 class StopWatchManager:
-    def __init__(self):
+    def __init__(self) -> None:
         self.stop_watches: dict[str, StopWatch] = {}
 
     def new_stop_watch(self, name: str) -> StopWatch:
